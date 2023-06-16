@@ -1,0 +1,113 @@
+// imports
+@import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+// styles parameters  
+$main_color: rgb(7 201 23 / 87%);
+$js_color: #fff;
+$button_color: #cfdfce;
+$header_fz: 30px;
+$mb: 40px;
+$bmb: 15px;
+$title_size: 24px;
+$text_size: 18px;
+
+// mixin
+@mixin b_title(){
+	font-size: $title_size;
+	font-weight: bold;
+    margin-bottom: $bmb;
+}
+@mixin b_text(){
+    margin-bottom: $bmb;
+    flex: 1 1 auto;
+    color: #fff;
+    text-shadow: 2px 2px 1px #000; 
+}
+@mixin b_button(){
+    width: 100%;
+    background-color: $button_color;
+    padding: 15px 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: $js_color;
+    }
+}
+// Custom style
+html, body {
+    height: 100%;
+    background: url(../img/background.jpg);
+    font-family: 'PT Sans', sans-serif;
+    font-size: $text_size;
+}
+.mb {
+    margin-bottom: $mb;
+}
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.result{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+table, th, td {
+    border: 1px solid;
+    padding: 10px;
+}
+// Header style
+.header {
+    align-items: center;
+    background-color: $main_color;
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: $header_fz;
+    text-shadow: 3px 3px 3px $js_color; 
+}
+// Main style
+.main {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    &-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 -10px;
+    }
+    &-block{
+        flex: 0 0 250px;
+        display: flex;
+        flex-direction: column;
+        background-color: $main_color;
+        padding: 15px;
+        text-align: center;
+        margin: 10px;
+        &__title{
+            @include b_title();
+        }
+        &__text{
+            @include b_text();
+        }
+        &__img{
+            margin-bottom: $bmb;
+        }
+        &__button{
+            @include b_button();
+        }
+    } 
+}
+// Footer style
+.footer {
+    width: 100%;
+    background-color: $main_color;
+    padding: 10px 15px;
+    text-align: center;
+    text-shadow: 3px 3px 3px $js_color; 
+    font-size: $header_fz;
+    z-index: 5;
+}
